@@ -8,11 +8,11 @@ import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
 
 import { useCreateCabin } from "./useCreateCabin";
-import { useEditCabin } from "./useEditCabin";
+import { useUpdateCabin } from "./useUpdateCabin";
 
 function CreateCabinForm({ cabinToEdit = {} }) {
   const { isCreating, createCabin } = useCreateCabin();
-  const { isEditing, editCabin } = useEditCabin();
+  const { isUpdating, updateCabin } = useUpdateCabin();
 
   const { id: editId, ...editValues } = cabinToEdit;
   const isEditSession = Boolean(editId);
@@ -23,14 +23,14 @@ function CreateCabinForm({ cabinToEdit = {} }) {
 
   const { errors } = formState;
 
-  const isWorking = isCreating || isEditing;
+  const isWorking = isCreating || isUpdating;
 
   function onSubmit(data) {
     // data may contain either filename or file object
     const image = typeof data.image === "string" ? data.image : data.image[0];
 
     if (isEditSession)
-      editCabin(
+      updateCabin(
         { newCabinData: { ...data, image }, id: editId },
         {
           onSuccess: (data) => {
