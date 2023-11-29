@@ -54,10 +54,10 @@ const Button = styled.button`
   box-shadow: var(--shadow-sm);
 
   ${(props) => sizes[props.$size]}
-  ${(props) => variations[props.$variation]}
+  ${(props) => variations[props.variation]}
 `;
 
-Button.defaultProps = { $variation: "primary", $size: "medium" };
+Button.defaultProps = { variation: "primary", $size: "medium" };
 
 Button.shouldForwardProp = (prop) => prop !== "$variation";
 
