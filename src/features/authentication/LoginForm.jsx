@@ -10,7 +10,7 @@ import { useLogin } from "./useLogin";
 
 function LoginForm() {
   const [email, setEmail] = useState("tero@tero.com");
-  const [password, setPassword] = useState("qwerty");
+  const [password, setPassword] = useState("qwertyui");
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {
