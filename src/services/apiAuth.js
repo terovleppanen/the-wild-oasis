@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import supabase, { supabaseUrl } from "./supabase";
 
 export async function signup({ fullName, email, password }) {
